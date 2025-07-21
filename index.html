@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ComfyStitch - Custom & Readymade Cotton Nighties</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fdf6f0;
+      background-image: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAABJJREFUCB1jYGBgYGBgYGBgYGBgYGBgYAAAAAAAAB4dEVYdAAAAAElFTkSuQmCC');
+    }
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+    .btn-gradient {
+      background: linear-gradient(to right, #f472b6, #a78bfa);
+      transition: background 0.3s ease;
+    }
+    .btn-gradient:hover {
+      background: linear-gradient(to right, #ec4899, #8b5cf6);
+    }
+    .dropdown-menu {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.5s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="text-gray-800">
+  <!-- Sticky Header -->
+  <header class="sticky top-0 bg-white shadow-lg z-50">
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl md:text-3xl font-bold text-pink-600">ComfyStitch</h1>
+      <div class="flex items-center space-x-2 md:space-x-6">
+        <ul class="hidden md:flex space-x-6 text-sm md:text-base">
+          <li><a href="#home" class="hover:text-pink-600 transition">Home</a></li>
+          <li><a href="#fabrics" class="hover:text-pink-600 transition">Fabrics</a></li>
+          <li class="relative group">
+            <button class="hover:text-pink-600 transition">Categories</button>
+            <ul class="dropdown-menu absolute hidden group-hover:block bg-white shadow-lg rounded-lg mt-2 py-2 w-48 opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0">
+              <li><a href="#readymade?category=vertical-zip" class="block px-4 py-2 hover:bg-pink-100">Vertical Zip Nighty</a></li>
+              <li><a href="#readymade?category=square-neck" class="block px-4 py-2 hover:bg-pink-100">Square Neck Pleated</a></li>
+              <li><a href="#readymade?category=side-button" class="block px-4 py-2 hover:bg-pink-100">Side Button Nighty</a></li>
+              <li><a href="#readymade?category=no-zip" class="block px-4 py-2 hover:bg-pink-100">No Zip Nighty</a></li>
+              <li><a href="#readymade?category=lace" class="block px-4 py-2 hover:bg-pink-100">Lace Nighty</a></li>
+              <li><a href="#readymade?category=kaftan-feeding" class="block px-4 py-2 hover:bg-pink-100">Kaftan Feeding Nighty</a></li>
+              <li><a href="#readymade?category=full-open" class="block px-4 py-2 hover:bg-pink-100">Full Open Nighty</a></li>
+              <li><a href="#readymade?category=front-pleated" class="block px-4 py-2 hover:bg-pink-100">Front Pleated Zip</a></li>
+              <li><a href="#readymade?category=embroidery" class="block px-4 py-2 hover:bg-pink-100">Embroidery Nighty</a></li>
+              <li><a href="#readymade?category=elastic" class="block px-4 py-2 hover:bg-pink-100">Elastic Nighty</a></li>
+              <li><a href="#readymade?category=double-lace" class="block px-4 py-2 hover:bg-pink-100">Double Lace Nighty</a></li>
+            </ul>
+          </li>
+          <li><a href="#custom-order" class="hover:text-pink-600 transition">Custom Order</a></li>
+          <li><a href="#contact" class="hover:text-pink-600 transition">Contact</a></li>
+          <li><a href="#policy" class="hover:text-pink-600 transition">Policy</a></li>
+        </ul>
+        <button class="md:hidden text-pink-600" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+      <ul class="px-4 py-2 space-y-2 text-sm">
+        <li><a href="#home" class="block hover:text-pink-600">Home</a></li>
+        <li><a href="#fabrics" class="block hover:text-pink-600">Fabrics</a></li>
+        <li>
+          <button class="block hover:text-pink-600" onclick="document.getElementById('mobile-categories').classList.toggle('hidden')">Categories</button>
+          <ul id="mobile-categories" class="hidden pl-4 space-y-2">
+            <li><a href="#readymade?category=vertical-zip" class="block hover:text-pink-600">Vertical Zip Nighty</a></li>
+            <li><a href="#readymade?category=square-neck" class="block hover:text-pink-600">Square Neck Pleated</a></li>
+            <li><a href="#readymade?category=side-button" class="block hover:text-pink-600">Side Button Nighty</a></li>
+            <li><a href="#readymade?category=no-zip" class="block hover:text-pink-600">No Zip Nighty</a></li>
+            <li><a href="#readymade?category=lace" class="block hover:text-pink-600">Lace Nighty</a></li>
+            <li><a href="#readymade?category=kaftan-feeding" class="block hover:text-pink-600">Kaftan Feeding Nighty</a></li>
+            <li><a href="#readymade?category=full-open" class="block hover:text-pink-600">Full Open Nighty</a></li>
+            <li><a href="#readymade?category=front-pleated" class="block hover:text-pink-600">Front Pleated Zip</a></li>
+            <li><a href="#readymade?category=embroidery" class="block hover:text-pink-600">Embroidery Nighty</a></li>
+            <li><a href="#readymade?category=elastic" class="block hover:text-pink-600">Elastic Nighty</a></li>
+            <li><a href="#readymade?category=double-lace" class="block hover:text-pink-600">Double Lace Nighty</a></li>
+          </ul>
+        </li>
+        <li><a href="#custom-order" class="block hover:text-pink-600">Custom Order</a></li>
+        <li><a href="#contact" class="block hover:text-pink-600">Contact</a></li>
+        <li><a href="#policy" class="block hover:text-pink-600">Policy</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/919876543210" target="_blank" class="whatsapp-float">
+    <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp" class="w-14 h-14">
+  </a>
+
+  <!-- Home Page -->
+  <section id="home" class="min-h-screen flex items-center bg-gradient-to-r from-pink-200 via-purple-200 to-blue-200 animate-fade-in">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-4xl md:text-6xl font-bold text-gray-800 mb-4">Your Fit. Your Fabric. Our Stitch.</h2>
+      <p class="text-lg md:text-xl text-gray-600 mb-8">Crafted with love, ComfyStitch offers custom-stitched and readymade cotton nighties for ultimate comfort.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="card bg-white rounded-2xl shadow-xl p-6">
+          <h3 class="text-xl font-semibold text-pink-600">Custom Tailoring</h3>
+          <p class="text-gray-600 mb-4">Select your fabric and measurements for a nighty tailored to your style.</p>
+          <a href="#fabrics" class="btn-gradient text-white px-6 py-2 rounded-full">Browse Fabrics</a>
+        </div>
+        <div class="card bg-white rounded-2xl shadow-xl p-6">
+          <h3 class="text-xl font-semibold text-purple-600">Readymade Nighties</h3>
+          <p class="text-gray-600 mb-4">Explore our stylish collection in various sizes and designs.</p>
+          <a href="#readymade" class="btn-gradient text-white px-6 py-2 rounded-full">Shop Now</a>
+        </div>
+      </div>
+      <div class="mt-8">
+        <h4 class="text-lg font-semibold text-gray-800">What Our Customers Say</h4>
+        <p class="text-gray-600 italic">"The Kaftan Feeding Nighty is a game-changer for new moms!" - Priya S.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fabric Gallery Page -->
+  <section id="fabrics" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8 animate-fade-in">Fabric Gallery</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="card bg-white rounded-2xl shadow-xl p-4 relative">
+          <img src="https://via.placeholder.com/300x200?text=Blue+Floral+Cotton" alt="Blue Floral Cotton" class="w-full h-48 object-cover rounded-lg">
+          <h3 class="text-lg font-semibold mt-2">Blue Floral Cotton</h3>
+          <p class="text-gray-600">Stock: 10 meters</p>
+          <a href="#custom-order?fabric=blue-floral-cotton" class="btn-gradient text-white px-4 py-2 rounded-full mt-2">Select for Stitching</a>
+        </div>
+        <div class="card bg-white rounded-2xl shadow-xl p-4 relative">
+          <img src="https://via.placeholder.com/300x200?text=Pink+Polka+Cotton" alt="Pink Polka Cotton" class="w-full h-48 object-cover rounded-lg">
+          <h3 class="text-lg font-semibold mt-2">Pink Polka Cotton</h3>
+          <p class="text-gray-600">Stock: 0 meters</p>
+          <span class="absolute top-2 right-2 bg-red-600 text-white text-xs px-2 py-1 rounded">Out of Stock</span>
+          <button class="mt-2 bg-gray-400 text-white px-4 py-2 rounded-full cursor-not-allowed" disabled>Select for Stitching</button>
+        </div>
+        <div class="card bg-white rounded-2xl shadow-xl p-4 relative">
+          <img src="https://via.placeholder.com/300x200?text=Green+Stripes+Cotton" alt="Green Stripes Cotton" class="w-full h-48 object-cover rounded-lg">
+          <h3 class="text-lg font-semibold mt-2">Green Stripes Cotton</h3>
+          <p class="text-gray-600">Stock: 15 meters</p>
+          <a href="#custom-order?fabric=green-stripes-cotton" class="btn-gradient text-white px-4 py-2 rounded-full mt-2">Select for Stitching</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom Stitching Order Page -->
+  <section id="custom-order" class="py-16 bg-gradient-to-r from-purple-100 to-pink-100">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8 animate-fade-in">Custom Stitching Order</h2>
+      <form class="max-w-lg mx-auto bg-white p-6 rounded-2xl shadow-xl">
+        <div class="mb-4">
+          <label class="block text-gray-700 font-semibold">Selected Fabric</label>
+          <input type="text" id="selected-fabric" class="w-full p-2 border rounded-lg bg-gray-100" readonly>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 font-semibold">Select Style</label>
+          <select class="w-full p-2 border rounded-lg" name="style" id="style-select" required>
+            <option value="">Choose a style</option>
+            <option value="vertical-zip">Vertical Zip Nighty</option>
+            <option value="square-neck">Square Neck Pleated Nighty</option>
+            <option value="side-button">Side Button Nighty</option>
+            <option value="no-zip">No Zip Nighty</option>
+            <option value="lace">Lace Nighty</option>
+            <option value="kaftan-feeding">Kaftan Feeding Nighty</option>
+            <option value="full-open">Full Open Nighty</option>
+            <option value="front-pleated">Front Pleated Zip Nighty</option>
+            <option value="embroidery">Embroidery Nighty</option>
+            <option value="elastic">Elastic Nighty</option>
+            <option value="double-lace">Double Lace Nighty</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 font-semibold">Customer Name</label>
+          <input type="text" class="w-full p-2 border rounded-lg" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 font-semibold">Phone Number</label>
+          <input type="tel" class="w-full p-2 border rounded-lg" required>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block text-gray-700 font-semibold">Chest Size (cm)</label>
+            <input type="number" class="w-full p-2 border rounded-lg" required placeholder="Chest Size (cm)">
+          </div>
+          <div>
+            <label class="block text-gray-700 font-semibold">Sleeve Length (cm)</label>
+            <input type="number" class="w-full p-2 border rounded-lg" required placeholder="Sleeve Length (cm)">
+          </div>
+          <div>
+            <label class="block text-gray-700 font-semibold">Sleeve Girth (cm)</label>
+            <input type="number" class="w-full p-2 border rounded-lg" required placeholder="Sleeve Girth (cm)">
+          </div>
+          <div>
+            <label class="block text-gray-700 font-semibold">Height from Shoulder (cm)</label>
+            <input type="number" class="w-full p-2 border rounded-lg" required placeholder="Height from Shoulder (cm)">
+          </div>
+          <div>
+            <label class="block text-gray-700 font-semibold">Shoulder Width (cm)</label>
+            <input type="number" class="w-full p-2 border rounded-lg" required placeholder="Shoulder Width (cm)">
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 font-semibold">Notes (e.g., neck design, preferences)</label>
+          <textarea class="w-full p-2 border rounded-lg" rows="4"></textarea>
+        </div>
+        <div class="flex space-x-4">
+          <a href="https://wa.me/919876543210?text=Custom%20Order%20Details" id="whatsapp-submit" target="_blank" class="btn-gradient text-white px-6 py-2 rounded-full">Submit via WhatsApp</a>
+          <button type="submit" class="btn-gradient text-white px-6 py-2 rounded-full">Submit</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Readymade Products Page -->
+  <section id="readymade" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8 animate-fade-in">Readymade Nighties</h2>
+      <div class="flex flex-wrap gap-2 mb-6 justify-center">
+        <button class="category-filter btn-gradient text-white px-4 py-2 rounded-full" data-category="all">All</button>
+        <button class="category-filter bg-pink-200 text-gray-800 px-4 py-2 rounded-full hover:bg-pink-300" data-category="vertical-zip">Vertical Zip</button>
+        <button class="category-filter bg-pink-200 text-gray-800 px-4 py-2 rounded-full hover:bg-pink-300" data-category="square-neck">Square Neck</button>
+        <button class="category-filter bg-pink-200 text-gray-800 px-4 py-2 rounded-full hover:bg-pink-300" data-category="side-button">Side Button</button>
+        <button class="category-filter bg-pink-200 text-gray-800 px-4 py-2 rounded-full hover:bg-pink-300" data-category="no-zip">No Zip</button>
+        <button class="category-filter bg-pink-200 text-gray-800 px-4 py-2 rounded-full hover:bg-pink-300" data-category="lace">Lace</button>
+        <button class="category-filter bg-pink-200 text-gray-800 px-4 py-2 rounded-full hover:bg-pink-300" data-category="kaftan-feeding">Kaftan Feeding</button>
+        <button class="category-filter bg-pink-200 text-gray-800 px-4 py-2 rounded-full hover:bg-pink-300" data-category="full-open">Full Open</button>
+        <button class="category-filter bg-pink-200 text-gray-800 px-4 py-2 rounded-full hover:bg-pink-300" data-category="front-pleated">Front Pleated</button>
+        <button class="category-filter bg-pink-200 text-gray-800 px-4 py-2 rounded-full hover:bg-pink-300" data-category="embroidery">Embroidery</button>
+        <button class="category-filter bg-pink-200 text-gray-800 px-4 py-2 rounded-full hover:bg-pink-300" data-category="elastic">Elastic</button>
+        <button class="category-filter bg-pink-200 text-gray-800 px-4 py-2 rounded-full hover:bg-pink-300" data-category="double-lace">Double Lace</button>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="product-grid">
+        <div class="card bg-white rounded-2xl shadow-xl p-4" data-category="vertical-zip">
+          <img src="https://via.placeholder.com/300x200?text=Vertical+Zip+Nightie" alt="Vertical Zip Nightie" class="w-full h-48 object-cover rounded-lg">
+          <h3 class="text-lg font-semibold mt-2">Vertical Zip Nighty</h3>
+          <p class="text-gray-600">Size: L | Price: ₹799</p>
+          <a href="https://wa.me/919876543210?text=Buy%20Vertical%20Zip%20Nightie%20L" target="_blank" class="btn-gradient text-white px-4 py-2 rounded-full mt-2">Buy Now via WhatsApp</a>
+        </div>
+        <div class="card bg-white rounded-2xl shadow-xl p-4" data-category="square-neck">
+          <img src="https://via.placeholder.com/300x200?text=Square+Neck+Nightie" alt="Square Neck Nightie" class="w-full h-48 object-cover rounded-lg">
+          <h3 class="text-lg font-semibold mt-2">Square Neck Pleated Nighty</h3>
+          <p class="text-gray-600">Size: XL | Price: ₹849</p>
+          <a href="https://wa.me/919876543210?text=Buy%20Square%20Neck%20Nightie%20XL" target="_blank" class="btn-gradient text-white px-4 py-2 rounded-full mt-2">Buy Now via WhatsApp</a>
+        </div>
+        <div class="card bg-white rounded-2xl shadow-xl p-4" data-category="kaftan-feeding">
+          <img src="https://via.placeholder.com/300x200?text=Kaftan+Feeding+Nightie" alt="Kaftan Feeding Nightie" class="w-full h-48 object-cover rounded-lg">
+          <h3 class="text-lg font-semibold mt-2">Kaftan Feeding Nighty</h3>
+          <p class="text-gray-600">Size: Free | Price: ₹899</p>
+          <a href="https://wa.me/919876543210?text=Buy%20Kaftan%20Feeding%20Nightie%20Free" target="_blank" class="btn-gradient text-white px-4 py-2 rounded-full mt-2">Buy Now via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Page -->
+  <section id="contact" class="py-16 bg-gradient-to-r from-pink-100 to-purple-100">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8 animate-fade-in">Contact Us</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-xl font-semibold text-pink-600 mb-4">Our Story</h3>
+          <p class="text-gray-600 mb-4">ComfyStitch, founded by Sunil Gangole, brings over a decade of tailoring expertise to create comfortable, stylish cotton nighties with handpicked fabrics.</p>
+          <h3 class="text-xl font-semibold text-pink-600 mb-4">Visit Us</h3>
+          <p class="text-gray-600">Samarth Gown and Dresses,Lokmanya Nagar,Thane, India</p>
+          <p class="text-gray-600">Phone: +91 98765 43210</p>
+          <a href="https://wa.me/917039505019" target="_blank" class="btn-gradient text-white px-6 py-2 rounded-full mt-4 inline-block">Chat on WhatsApp</a>
+        </div>
+        <div>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d259.3403469836809!2d72.95097979611202!3d19.21049656495893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b97c7bf59065%3A0xcdb998bb1f56db3e!2sSamarth%20Gown%20And%20Dresses!5e1!3m2!1sen!2sus!4v1753112530408!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-64 rounded-lg shadow-lg" allowfullscreen="" loading="lazy"></iframe>
+        </div>4v1634567890123
+      </div>
+    </div>
+  </section>
+
+  <!-- Policy Page -->
+  <section id="policy" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8 animate-fade-in">Our Policies</h2>
+      <div class="space-y-8">
+        <div class="card bg-white rounded-2xl shadow-xl p-6">
+          <h3 class="text-xl font-semibold text-pink-600 mb-4">Return Policy</h3>
+          <p class="text-gray-600">We accept returns for readymade nighties within 7 days of delivery if unused and in original condition. Custom-stitched nighties are non-returnable due to their personalized nature, but we offer alterations if measurements are incorrect. Contact us via WhatsApp (+91 98765 43210) for assistance.</p>
+        </div>
+        <div class="card bg-white rounded-2xl shadow-xl p-6">
+          <h3 class="text-xl font-semibold text-pink-600 mb-4">Shipping Policy</h3>
+          <p class="text-gray-600">We ship across India within 5-7 business days for readymade nighties and 10-14 days for custom orders. Shipping costs are calculated at checkout (via WhatsApp or Razorpay/UPI, if available). Free shipping on orders above ₹2000. Track your order by contacting us.</p>
+        </div>
+        <div class="card bg-white rounded-2xl shadow-xl p-6">
+          <h3 class="text-xl font-semibold text-pink-600 mb-4">Privacy Policy</h3>
+          <p class="text-gray-600">Your personal information (name, phone, measurements) is used solely for order processing and communication. We do not share your data with third parties except for shipping purposes. Contact us to review or delete your data.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-sm">© 2025 ComfyStitch. All rights reserved.</p>
+      <p class="text-sm mt-2">Crafted with <span class="text-pink-600">♥</span> in Thane, India</p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = this.getAttribute('href').split('?')[0];
+        document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Populate fabric and style from URL parameters
+    window.addEventListener('load', function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const fabric = urlParams.get('fabric');
+      const category = urlParams.get('category');
+      const fabricInput = document.getElementById('selected-fabric');
+      const styleSelect = document.getElementById('style-select');
+
+      // Populate fabric
+      if (fabric) {
+        const formattedFabric = fabric
+          .replace(/-/g, ' ')
+          .replace(/\b\w/g, char => char.toUpperCase());
+        fabricInput.value = formattedFabric;
+      } else {
+        fabricInput.value = 'No fabric selected';
+      }
+
+      // Pre-select style from category
+      if (category) {
+        styleSelect.value = category;
+        // Filter products
+        filterProducts(category);
+      }
+
+      // Filter products by category
+      document.querySelectorAll('.category-filter').forEach(button => {
+        button.addEventListener('click', function () {
+          const category = this.getAttribute('data-category');
+          filterProducts(category);
+        });
+      });
+
+      function filterProducts(category) {
+        const products = document.querySelectorAll('#product-grid > div');
+        products.forEach(product => {
+          if (category === 'all' || product.getAttribute('data-category') === category) {
+            product.style.display = 'block';
+          } else {
+            product.style.display = 'none';
+          }
+        });
+      }
+
+      // Update WhatsApp link
+      document.querySelector('form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const name = document.querySelector('input[type="text"]').value;
+        const phone = document.querySelector('input[type="tel"]').value;
+        const style = document.querySelector('select[name="style"]').value;
+        const chest = document.querySelector('input[placeholder="Chest Size (cm)"]').value;
+        const sleeveLength = document.querySelector('input[placeholder="Sleeve Length (cm)"]').value;
+        const sleeveGirth = document.querySelector('input[placeholder="Sleeve Girth (cm)"]').value;
+        const height = document.querySelector('input[placeholder="Height from Shoulder (cm)"]').value;
+        const shoulder = document.querySelector('input[placeholder="Shoulder Width (cm)"]').value;
+        const notes = document.querySelector('textarea').value;
+        const formattedStyle = style
+          .replace(/-/g, ' ')
+          .replace(/\b\w/g, char => char.toUpperCase());
+        const whatsappLink = `https://wa.me/919876543210?text=Custom%20Order%20Details:%0AName:%20${encodeURIComponent(name)}%0APhone:%20${encodeURIComponent(phone)}%0AFabric:%20${encodeURIComponent(fabricInput.value)}%0AStyle:%20${encodeURIComponent(formattedStyle)}%0AChest:%20${chest}cm%0ASleeve%20Length:%20${sleeveLength}cm%0ASleeve%20Girth:%20${sleeveGirth}cm%0AHeight:%20${height}cm%0AShoulder:%20${shoulder}cm%0ANotes:%20${encodeURIComponent(notes)}`;
+        document.getElementById('whatsapp-submit').href = whatsappLink;
+        alert('Form ready! Please click "Submit via WhatsApp" to send your order.');
+      });
+    });
+  </script>
+</body>
+</html>
